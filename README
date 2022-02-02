@@ -1,0 +1,45 @@
+/---------\     /---------\
+| Awesome | === | Firefox | 
+\---------/     \---------/
+
+Installation
+------------
+
+git clone https://github.com/undefinedDarkness/awesome-firefox-integration.git
+cd awesome-firefox-integration
+make
+# In firefox:
+# Navigate to about:addons
+# Under the cog menu, select `Install From File'
+# In the file selector:
+#   Navigate to the */awesome-firefox-integration folder
+#   Select the *.xpi file
+# Add integration to awesome / whatever linux apps you want
+
+Interface [[SUBJECT TO CHANGE]]
+---------
+Currently, The Python script creates 2 files,
+/tmp/ff-tabs-input & /tmp/ff-tabs-output
+
+It will read commands from `ff-tabs-input',
+*after* getting a USR1 signal from the system ($ kill -s USR1 $(pgrep server.py))
+
+It writes its output or any data it recieves from the firefox extension to `ff-tabs-output`,
+...
+
+Structure
+---------
+
+/--------------------------------------------\      /------------\    /---------\
+| Firefox | Extension => Python Native Host  | ==>  | Linux IPC* | => | Awesome |
+\--------------------------------------------/      \------------/    \---------/
+
+* Currently by IPC, I mean we have a couple of files that are used to read output and send commands to the native host
+  I plan to move this to named pipes
+
+TODO
+----
+- Remove script dependency on awesome-client
+- Move to named pipes
+- Support for multiple instances of firefox
+- Support for different editions (nightly, dev)
