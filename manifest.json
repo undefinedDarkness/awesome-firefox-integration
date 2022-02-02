@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "ipc tabs",	
+  "version": "1.0.0",
+  "description": "Export tab information via linux IPC to interact with",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "rice@nes.is-a.dev"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "tabs",
+    "nativeMessaging"
+  ]
+}

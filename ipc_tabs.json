@@ -1,0 +1,7 @@
+{
+    "name": "ipc_tabs",
+    "description": "Host for native messaging",
+    "path": "/home/portal/Downloads/firefox/extension/server.py",
+    "type": "stdio",
+    "allowed_extensions": ["rice@nes.is-a.dev"]
+}
